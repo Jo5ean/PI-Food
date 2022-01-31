@@ -2,8 +2,8 @@ const axios = require ('axios');
 const { Recipe, Diet } = require ('../db');
 const { YOUR_API_KEY } = process.env;
 
-const getAllRecips = async (req, res, next) => {
-    const pedido = await axios.get(` https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`);
+const getAllRecipes = async (req, res, next) => {
+    const pedido = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`);
 
     const dbInfo = await Recipe.findAll({include:{
         model: Diet,
@@ -34,6 +34,6 @@ if(pedido || dbInfo){
 };
 
 module.exports = {
-    getAllRecips,
+    getAllRecipes,
 };
 
