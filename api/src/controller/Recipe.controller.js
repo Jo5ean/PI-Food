@@ -8,7 +8,7 @@ const { getAllRecipes } = require("../controller/Helper");
 
 const getRecipeByName = async (req, res, next) => {
   try {
-    const  name  = req.query.name;
+    const name = req.query.name;
     let allRecipes = await getAllRecipes();
     if (name) {
       let recipeName = allRecipes.filter((e) =>
@@ -34,7 +34,7 @@ const getRecipeByName = async (req, res, next) => {
 
 const getRecipe = async (req, res, next) => {
   try {
-    const  idRecipe  = req.params.idRecipe;
+    const idRecipe = req.params.idRecipe;
     const allRecipes = await getAllRecipes();
     if (idRecipe) {
       let recipe = await allRecipes.filter((e) => e.id == idRecipe); //comparamos los valores luego de convertirlos a un mismo tipo de dato
@@ -51,42 +51,43 @@ const getRecipe = async (req, res, next) => {
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de recetas por body
 // Crea una receta en la base de datos
 
-const createRecipe = async (req, res, next) => { //tiene que ser exactamente igual que en las odels?
-    try{
-        let {
-            name,
-            image,
-            resumePlate,
-            puntuation,
-            healthyLevel,
-            steps,
-            diet,
-            createInDb,
-        } = req.body;
+const createRecipe = async (req, res, next) => {
+  //tiene que ser exactamente igual que en las odels?
+  try {
+    let {
+      name,
+      image,
+      summary,
+      puntuation,
+      healthyLevel,
+      steps,
+      diet,
+      createInDb,
+    } = req.body;
+    // console.log(req.body);
+    let recipeCreated = await Recipe.create({
+      name,
+      image,
+      summary,
+      puntuation,
+      healthyLevel,
+      steps,
+      diet,
+      createInDb,
+    });
 
-        let recipeCreated = await Recipe.create({
-            name,
-            image,
-            resumePlate,
-            puntuation,
-            healthyLevel,
-            steps,
-            diet,
-            createInDb,
-        });
-
-        let dietDb = await Diet.findAll({
-            where: { name: diet },
-        });
-        recipeCreated.addDiet(dietDb);
-        res.status(201).send("Recipe created successfully!");
-        }catch(e){
-            next(e);
-        }
+    let dietDb = await Diet.findAll({
+      where: { name: diet },
+    });
+    recipeCreated.addDiet(dietDb);
+    res.status(201).send("Recipe created successfully!");
+  } catch (e) {
+    next(e);
+  }
 };
 
 module.exports = {
-    getRecipeByName,
-    getRecipe,
-    createRecipe,
+  getRecipeByName,
+  getRecipe,
+  createRecipe,
 };

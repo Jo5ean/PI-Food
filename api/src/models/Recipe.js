@@ -14,7 +14,8 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('recipe', {
     id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     name: {
@@ -26,11 +27,11 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     spoonacularScore: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     healthScore: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     steps: {

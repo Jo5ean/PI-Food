@@ -27,7 +27,7 @@ if(pedido || dbInfo){
         };
         });
     let final = [...apiInfo, ...dbInfo];
-    console.log(final);
+    // console.log(final);
     return final;
     
 }
