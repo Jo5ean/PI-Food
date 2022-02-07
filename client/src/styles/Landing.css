@@ -1,0 +1,62 @@
+.landing{
+    background-image: url('https://foodiday.com/images/food.gif');
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.landing_button {
+    border-radius: 8px;
+    /* background-color: #ebe9e9; */
+    background-color: #b4ad94;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 350px;
+    transition: all 0.5s;
+    cursor: pointer;
+    top:10%;
+    left: 38%;
+    position:absolute;
+  }
+  
+  .landing_button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .landing_button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .landing_button:hover span {
+    padding-right: 25px;
+  }
+  
+  .landing_button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.landing-text{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+}
+

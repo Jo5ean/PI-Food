@@ -1,0 +1,20 @@
+.button{
+    height: 40px;
+    background-color: transparent;
+    border-radius: 8px;
+    width: 100%;
+    /* esta nose si va */
+    border: 1px solid #e6e6e6; 
+    font-size: medium;
+    border-width: 2px;
+    cursor: pointer;
+}
+
+.button :hover{
+    border-width: 1px;
+    background-color: #e6e6e6;
+}
+
+.input{
+    border-radius: 8px;
+}

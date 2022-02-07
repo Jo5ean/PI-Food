@@ -1,0 +1,84 @@
+.detail{
+    background-color: #f7dfb4;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.detail_button{
+    background-color: #b7b7a4;
+    float: left;
+    font-size: medium;
+    margin-left: 0px;
+    margin-top: 36px;
+    height: 43px;
+    border: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.detail_button{
+    background-color: #a5a58d;
+}
+#aCasa{
+    margin-left: 40px
+}
+
+.name{
+    color: #6b705c;
+    padding-right: 90px;
+}
+
+.asd{
+    display: inline-block;
+    padding: 0;
+    margin: 30px;
+    font-size: medium;
+}
+.asd li {
+    display:inline-block;
+}
+
+.detail_image{
+    height: 80%;
+    max-height: 600px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
+    border-radius: 8px;
+}
+
+.detail__list {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-size: medium;
+}
+.detail__list li {
+    display: inline;
+}
+
+.caracts{
+    color: #6b705c;
+    font-size: large;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 30px
+}
+
+p{
+    color: #6b705c;
+    font-size: medium;
+    padding-bottom: 10px;
+    padding-top: 0;
+    margin-top: 5px;
+}
+
+.loading{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://c.tenor.com/2yQv-RptjeQAAAAC/fastfood.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
