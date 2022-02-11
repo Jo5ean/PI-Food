@@ -21,7 +21,7 @@ export default function Home () {
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
     const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-    const [setSort] = useState(''); //estado que utilizaremos para las sorts
+    const [, setSort] = useState(''); //estado que utilizaremos para las sorts
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -74,14 +74,14 @@ export default function Home () {
           <div className='divNB'>
               <ul className='navbar'>
                   <li>
-                      <button onClick={e=>{ handleClick(e)}} className='elemntNB'>Home</button>
+                      <button onClick={e=>{ handleClick(e)}} className='elementNB'>Home</button>
                   </li>
                     <li>
-                        <Link to='/form' ><button className='elemntNB'>Nueva Receta</button></Link>
+                        <Link to='/form' ><button className='elementNB'>Nueva Receta</button></Link>
                     </li>
                     <li className='content-select'>
                         <select onChange={e=>handleSortByName(e)}>
-                            <option value="selected" hidden className='elemntNB'>Ordenar por nombre:</option>
+                            <option value="selected" hidden className='elementNB'>Ordenar por nombre:</option>
                             <option value="asc">A - Z</option>
                             <option value="desc">Z - A</option>
                         </select>

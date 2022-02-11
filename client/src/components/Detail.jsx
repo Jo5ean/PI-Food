@@ -6,22 +6,35 @@
 // [ ] Nivel de "comida saludable"
 // [ ] Paso a paso
 
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetails } from '../redux/actions';
-import '../styles/Detail.css';
+// import '../styles/Detail.css';
+import { useParams } from "react-router";
 
-export default function Detail(props) {
+export default function Detail() {
+    let { id: code } = useParams();
+    let [id] = useState(code);
+    console.log(id);
     const dispatch = useDispatch();
-    const id = props.match.params.id; //aacedemos al id que viene por la url
+ 
+ 
 
-    const detail = useSelector(state => state.detail);
+    //debugger;
+    // console.log(this.props.params);
+   
+    // const id = this.props.match.params.id;
+    // console.log(id);
 
     useEffect(() => {
         dispatch(getDetails(id));
-    } , [dispatch, id]); //cosultar por el doble argumento 
+    } , [dispatch, id] ); //cosultar por el doble argumento 
 
+    const detail = useSelector(state => state.details);
+    // console.log(detail);
+    // console.log(detail[0].summary.innerHTML);
+//    console.log(detail[0].diet);
     return (
         <div className="detail">
             <Link to ='/home'><button className="detail__button" id='aCasa'>Volver</button></Link>
@@ -41,13 +54,13 @@ export default function Detail(props) {
                                 <h3 className='caracts'>Dietas:</h3>
                                 <ul className="detail__list">
                                     {/* analizar cambio de codig, logica medio rara */}
-                                    { detail[0].createdInDb?
-                                        detail[0].diet.map(e => {
-                                            return <li key={e.id}>{e.name}</li>
+                                    { detail[0].createInDb?
+                                        detail[0].diets.map(e => {
+                                            return <li key={e.id}>{e}</li>
                                         }) :
                                         detail[0].diet?
                                         detail[0].diet.map(e => {
-                                            return <li key={e.id}>{e.name}</li>
+                                            return <li key={e.id}>{e}</li>
                                         }) :
                                         <li>No hay dietas</li>
                                     }
@@ -57,13 +70,13 @@ export default function Detail(props) {
                         <li>
                             <div>
                                 <h3 className='caracts'>Resumen del plato:</h3>
-                                <p className="detail__text">{detail[0].summary}</p>
+                                <p className="detail__text" >{detail[0].summary}</p>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <h3 className='caracts'>Puntuación:</h3>
-                                <p className="detail__text">{detail[0].spoonocularScore}</p>
+                                <p className="detail__text">{detail[0].spoonacularScore}</p>
                             </div>
                         </li>
                         <li>

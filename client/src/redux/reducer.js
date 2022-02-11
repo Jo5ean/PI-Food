@@ -13,7 +13,7 @@ const initialState = {
   recipes: [],
   allRecipes: [], //declaramos un estado inicial que va a ser el que se modifica, de esta manera no tengo que recargar la pagina cuando hago algun filtro
   diets: [],
-  details: [], //consultar este objeto
+  details: [], //consultar este objeto, es array u objeto?
 };
 
 function rootReducer(state = initialState, action) {
@@ -52,11 +52,13 @@ function rootReducer(state = initialState, action) {
     case FILTER_BY_ORIGIN:
       const all = state.allRecipes;
       const originFiltered =
-        action.payload === "All"
+        action.payload === "all"
           ? all
-          : action.payload === "My Recipes"
-          ? all.filter((e) => e.createdInDb)
-          : all.filter((e) => !e.createdInDb);
+          : action.payload === "created"
+          ? all.filter((e) => e.createInDb)
+          : action.payload === "api"
+          ? all.filter((e) => !e.createInDb)
+          : all;
       return {
         ...state,
         recipes: originFiltered,
