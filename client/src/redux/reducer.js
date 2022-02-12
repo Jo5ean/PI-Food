@@ -31,15 +31,16 @@ function rootReducer(state = initialState, action) {
       };
     case FILTER_BY_DIET:
       const allRecipes = state.allRecipes; //utilizamos la variable auxiliar para no modificar el estado inicial
+  
       const recipeFiltered =
-        action.payload === "All"
+        action.payload === "all"
           ? allRecipes
           : allRecipes.filter((e) => {
               //este es el caso que por receta llegue una sola dieta
-              if (typeof e.diets === "string")
-                return e.diets.includes(action.payload);
+              if (e.diet)
+                return e.diet.includes(action.payload);
               //este caso en cambio es cuando en diets llega un array de dietas, realizamos la logica correspondiente
-              if (Array.isArray(e.diets)) {
+              if (e.diets) {
                 let aux = e.diets.map((e) => e.name);
                 return aux.includes(action.payload);
               }
@@ -65,18 +66,22 @@ function rootReducer(state = initialState, action) {
       };
     case SORT_BY_NAME:
       const sortedName =
-        action.payload === "Asc"
+        action.payload === "asc"
           ? state.recipes.sort((a, b) => a.name.localeCompare(b.name))
-          : state.recipes.sort((a, b) => b.name.localeCompare(a.name));
+          : action.payload === "desc"
+          ? state.recipes.sort((a, b) => b.name.localeCompare(a.name))
+          : state.recipes;
       return {
         ...state,
         recipes: sortedName,
       };
     case SORT_BY_SCORE:
       const sortedScore =
-        action.payload === "Asc"
-          ? state.recipes.sort((a, b) => a.score - b.score)
-          : state.recipes.sort((a, b) => b.score - a.score);
+        action.payload === "asc"
+          ? state.recipes.sort((a, b) => a.spoonacularScore - b.spoonacularScore)
+          : action.payload === "desc"
+          ? state.recipes.sort((a, b) => b.spoonacularScore - a.spoonacularScore)
+          : state.recipes;
       return {
         ...state,
         recipes: sortedScore,
@@ -89,7 +94,7 @@ function rootReducer(state = initialState, action) {
     case POST_RECIPE:
       return {
         ...state,
-        recipes: [...state.recipes, action.payload],
+        recipes: [...state.recipes, action.payload], //pot que los argumentos aca? 
       };
     default:
       return state;

@@ -16,7 +16,7 @@ import { useParams } from "react-router";
 export default function Detail() {
     let { id: code } = useParams();
     let [id] = useState(code);
-    console.log(id);
+    // console.log(id);
     const dispatch = useDispatch();
  
  
@@ -34,7 +34,7 @@ export default function Detail() {
     const detail = useSelector(state => state.details);
     // console.log(detail);
     // console.log(detail[0].summary.innerHTML);
-//    console.log(detail[0].diet);
+//    console.log(detail[0].summary);
     return (
         <div className="detail">
             <Link to ='/home'><button className="detail__button" id='aCasa'>Volver</button></Link>
@@ -56,7 +56,7 @@ export default function Detail() {
                                     {/* analizar cambio de codig, logica medio rara */}
                                     { detail[0].createInDb?
                                         detail[0].diets.map(e => {
-                                            return <li key={e.id}>{e}</li>
+                                            return <li key={e.id}>{e.name}</li>
                                         }) :
                                         detail[0].diet?
                                         detail[0].diet.map(e => {
@@ -70,7 +70,7 @@ export default function Detail() {
                         <li>
                             <div>
                                 <h3 className='caracts'>Resumen del plato:</h3>
-                                <p className="detail__text" >{detail[0].summary}</p>
+                                <p className="detail__text" ><div dangerouslySetInnerHTML={{__html: detail[0].summary}} /></p>
                             </div>
                         </li>
                         <li>
@@ -88,7 +88,9 @@ export default function Detail() {
                         <li>
                             <div>
                                 <h3 className='caracts'>Paso a paso:</h3>
+                                { detail[0].createInDb? <p className="detail__text">{detail[0].steps}</p> :
                                 <p className="detail__text">{detail[0].analyzedInstructions}</p>
+                               }
                             </div>
                         </li>
                     </ul>

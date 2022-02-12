@@ -92,12 +92,16 @@ export default function RecipeCreate() {
         navigate('/home');
     }
 
-    function handleDelete(e) {
-        e.preventDefault();
+    function handleDelete(el) {
         setInput({
             ...input,
-            diets: input.diets.filter(diet => diet !== e.target.value)
+            diets: input.diets.filter(diet => diet !== el)
+           
         });
+        // console.log(typeof(el));
+        // console.log(input.diets);
+        // console.log(diets);
+      
     }
 
     return (
@@ -149,7 +153,7 @@ export default function RecipeCreate() {
                             <ul className='allDiets' key={e}>
                                 <li>
                                     <p className='diet'><strong>{e}</strong></p>
-                                    <button className='x' onClick={e => handleDelete(e)}>X</button>
+                                    <button className='x' onClick={()=> handleDelete(e)}>X</button>
                                 </li>
                             </ul>
                         )

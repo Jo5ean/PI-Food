@@ -7,7 +7,7 @@
     transition-delay: 0s;
     box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
     padding: 4em;
-    margin: 5em;
+    margin: 4em;
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -35,4 +35,6 @@ h1{
 
 .imageRecipe{
   border-radius: 8px;
+  vertical-align: middle;
+  margin: 3px;
 }

@@ -132,6 +132,7 @@ export default function Home () {
                                 <Card
                                 name={e.name}
                                 image={e.image}
+                                dietDb={e.diets}
                                 diets={e.diet}
                                 key={e.id}
                                 />
