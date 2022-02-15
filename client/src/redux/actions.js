@@ -15,13 +15,13 @@ export function getRecipes(name){
     return async function (dispatch){
         try{
             if(name){
-        var ciu  = await axios.get('http://localhost:3001/recipe/get?name='+name);
+        var ciu  = await axios.get('/recipe/get?name='+name);
         return dispatch({
             type: GET_RECIPES,
             payload: ciu.data
         })
     } else{
-        let json  = await axios.get('http://localhost:3001/recipe/get/', {});
+        let json  = await axios.get('/recipe/get/', {});
         // console.log(json.data)
         return dispatch({
             type: GET_RECIPES,
@@ -36,7 +36,7 @@ export function getRecipes(name){
 export function getDiets(){
     return async function (dispatch){
         try{
-            let json  = await axios.get('http://localhost:3001/diet/get/types');
+            let json  = await axios.get('/diet/get/types');
             return dispatch({
                 type: GET_DIETS,
                 payload: json.data
@@ -49,7 +49,7 @@ export function getDiets(){
 export function getDetails(id){
     return async function (dispatch){
         try{
-            var json = await axios.get('http://localhost:3001/recipe/get/'+id);
+            var json = await axios.get('/recipe/get/'+id);
             // console.log(json.data)  
             return dispatch({
                 type: GET_DETAILS,
@@ -94,7 +94,7 @@ export function sortByScore(payload){
 export function postRecipe(payload){
     return async function (dispatch){
         try{
-            let json = await axios.post('http://localhost:3001/recipe/post', payload);
+            let json = await axios.post('/recipe/post', payload);
             return dispatch({ //preguntar si solo va un return con la respuesta del post
                 type: POST_RECIPE,
                 payload: json.data
