@@ -28,7 +28,7 @@ export default function RecipeCreate() {
 
     function validate(input) {
         let errors = {};
-        if (!input.name) {
+        if (input.name.length === 0) {
             errors.name = 'Your recipe must have a name!';
         }
         else if (input.name.length > 30) {
@@ -80,6 +80,7 @@ export default function RecipeCreate() {
     function handleSubmit(e) {
         e.preventDefault();
         dispatch(postRecipe(input))
+        alert('Recipe created successfully!');
         setInput({
             name: '',
             summary: '',
@@ -159,7 +160,7 @@ export default function RecipeCreate() {
                         )
                     })}
                 </div>
-                <button type='submit' className='boop'><strong>Create </strong></button>
+                <button type='submit' disabled={Object.keys(errors).length>0 || input.diets.length<1 ? true : false} className='boop'><strong>Create </strong></button>
 
             </form>
 

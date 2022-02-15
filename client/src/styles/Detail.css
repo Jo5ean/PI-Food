@@ -3,39 +3,25 @@
     width: 100%;
     height: 100%;
     position: absolute;
+    padding: 25px;
+    box-sizing: border-box;
+    inset-block: 0;
 }
-
-.detail_button{
-    background-color: #b7b7a4;
-    float: left;
-    font-size: medium;
-    margin-left: 0px;
-    margin-top: 36px;
-    height: 43px;
-    border: transparent;
-    border-radius: 8px;
-    cursor: pointer;
+.mar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 10%;
 }
-.detail_button{
-    background-color: #a5a58d;
+.caracts{
+    margin-top: 10px;
+    font-size: 1.2rem;
 }
-#aCasa{
-    margin-left: 40px
-}
-
-.name{
+.caracts h3{
     color: #6b705c;
-    padding-right: 90px;
-}
-
-.asd{
-    display: inline-block;
-    padding: 0;
-    margin: 30px;
-    font-size: medium;
-}
-.asd li {
-    display:inline-block;
+    font-size: 1.8rem;
 }
 
 .detail_image{
@@ -45,8 +31,42 @@
     max-width: 600px;
     box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
+.detail_button{
+    background-color: #b7b7a4;
+    font-size: medium;
+    margin-left: 0px;
+    margin-top: 36px;
+    height: 43px;
+    border: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.detail_button:hover {
+    background-color: #a5a58d;
+}
+#aCasa{
+    margin-left: 40px
+}
+
+.name{
+    color: #4c5042;
+    padding-right: 90px;
+}
+
+
+.asd{
+    display: inline-block;
+    padding: 10px;
+    margin: 30px;
+    font-size: medium;
+}
+.asd li {
+    display:inline-block;
+}
 .detail__list {
     display: inline-block;
     padding: 0;
@@ -55,14 +75,6 @@
 }
 .detail__list li {
     display: inline;
-}
-
-.caracts{
-    color: #6b705c;
-    font-size: large;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    margin-top: 30px
 }
 
 p{
@@ -77,8 +89,15 @@ p{
     position:absolute;
     height: 100%;
     width: 100%;
-    background-image: url('https://c.tenor.com/2yQv-RptjeQAAAAC/fastfood.gif');
+    background-image: url('https://i.pinimg.com/originals/70/1c/4f/701c4f418e5d1bb0b278aea50296c568.gif');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: none;
+    background-color: #f7dfb4;
+    margin-top: 0px;
+}
+.loading h1{
+    color: #13b597;
+    font-size: 1.8rem;
+    margin-top: 10%;
 }

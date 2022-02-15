@@ -77,11 +77,29 @@ function rootReducer(state = initialState, action) {
       };
     case SORT_BY_SCORE:
       const sortedScore =
-        action.payload === "asc"
-          ? state.recipes.sort((a, b) => a.spoonacularScore - b.spoonacularScore)
-          : action.payload === "desc"
-          ? state.recipes.sort((a, b) => b.spoonacularScore - a.spoonacularScore)
-          : state.recipes;
+        action.payload === "asc"?
+        state.recipes.sort(function (a, b) {
+        if(a.spoonacularScore > b.spoonacularScore){
+           return 1;
+        }
+        if(a.spoonacularScore < b.spoonacularScore){
+          return -1;
+        }
+        return 0;
+      }) : state.recipes.sort(function(a, b){
+        if(a.spoonacularScore > b.spoonacularScore){
+           return -1;
+           }
+           if(a.spoonacularScore < b.spoonacularScore){
+             return 1;
+             }
+             return 0;
+             });
+       
+          // ? state.recipes.sort((a, b) => a.spoonacularScore - b.spoonacularScore)
+          // : action.payload === "desc"
+          // ? state.recipes.sort((a, b) => b.spoonacularScore - a.spoonacularScore)
+          // : state.recipes;
       return {
         ...state,
         recipes: sortedScore,
