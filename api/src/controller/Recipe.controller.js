@@ -58,10 +58,10 @@ const createRecipe = async (req, res, next) => {
       name,
       image,
       summary,
-      puntuation,
-      healthyLevel,
+      spoonacularScore,
+      healthScore,
       steps,
-      diet,
+      diets,
       createInDb,
     } = req.body;
     // console.log(req.body);
@@ -69,15 +69,14 @@ const createRecipe = async (req, res, next) => {
       name,
       image,
       summary,
-      puntuation,
-      healthyLevel,
+      spoonacularScore,
+      healthScore,
       steps,
-      diet,
       createInDb,
     });
 
     let dietDb = await Diet.findAll({
-      where: { name: diet },
+      where: { name: diets },
     });
     recipeCreated.addDiet(dietDb);
     res.status(201).send("Recipe created successfully!");
