@@ -77,7 +77,7 @@ export default function Detail() {
                             <li>
                                 <div>
                                     <h3 className='caracts'>Puntuación:</h3>
-                                    <p className="detail__text"><strong>{detail[0].spoonacularScore}</strong></p>
+                                    <p className="detail__text"><strong>{detail[0].aggregateLikes}</strong></p>
                                 </div>
                             </li>
                             <li>

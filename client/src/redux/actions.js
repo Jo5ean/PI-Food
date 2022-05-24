@@ -18,7 +18,7 @@ export function getScore(name){
           
                 let json  = await axios.get('/recipe/get/', {});
                 // console.log(json.data)
-                let scorefilt = json.data.filter((e)=>e.spoonacularScore == name)
+                let scorefilt = json.data.filter((e)=>e.aggregateLikes === name)
                 return dispatch({
                     type: GET_SCORE,
                     payload: scorefilt,

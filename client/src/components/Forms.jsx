@@ -13,7 +13,7 @@ export default function RecipeCreate() {
     const [input, setInput] = useState({
         name: '',
         summary: '',
-        spoonacularScore: 0,
+        aggregateLikes: 0,
         healthScore: 0,
         steps: [],
         image: '',
@@ -37,11 +37,11 @@ export default function RecipeCreate() {
         else if (!input.summary) {
             errors.summary = 'Your recipe must have a summary!';
         }
-        else if (!input.spoonacularScore) {
-            errors.spoonacularScore = 'spoonacularScore required!';
+        else if (!input.aggregateLikes) {
+            errors.aggregateLikes = 'aggregateLikes required!';
         }
-        else if (input.spoonacularScore > 100 || input.spoonacularScore < 0) {
-            errors.spoonacularScore = 'spoonacularScore must be between 0 and 100!';
+        else if (input.aggregateLikes > 100 || input.aggregateLikes < 0) {
+            errors.aggregateLikes = 'aggregateLikes must be between 0 and 100!';
         }
         else if (!input.healthScore) {
             errors.healthScore = 'Healthy level required!';
@@ -84,7 +84,7 @@ export default function RecipeCreate() {
         setInput({
             name: '',
             summary: '',
-            spoonacularScore: 0,
+            aggregateLikes: 0,
             healthScore: 0,
             steps: [],
             image: '',
@@ -121,9 +121,9 @@ export default function RecipeCreate() {
                     {errors.summary && (<p className='error'>{errors.summary}</p>)}
                 </div>
                 <div>
-                    <label><strong>spoonacularScore: </strong></label>
-                    <input type='number' name='spoonacularScore' value={input.spoonacularScore} onChange={e => handleChange(e)} />
-                    {errors.spoonacularScore && (<p className='error'>{errors.spoonacularScore}</p>)}
+                    <label><strong>aggregateLikes: </strong></label>
+                    <input type='number' name='aggregateLikes' value={input.aggregateLikes} onChange={e => handleChange(e)} />
+                    {errors.aggregateLikes && (<p className='error'>{errors.aggregateLikes}</p>)}
                 </div>
                 <div>
                     <label><strong>Healthy Level: </strong></label>

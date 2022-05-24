@@ -20,7 +20,7 @@ if(pedido || dbInfo){
             name: e.title,
             image: e.image,
             summary: e.summary,
-            spoonacularScore: e.spoonacularScore,
+            aggregateLikes: e.aggregateLikes,
             healthScore: e.healthScore,
             analyzedInstructions: e.analyzedInstructions.map(e => e.steps.map(e => e.step)).flat(1).join(''),
             diet: e.diets

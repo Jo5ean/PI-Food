@@ -103,7 +103,7 @@ export default function Home () {
                             }).map(diet => {
                                 return (
                                     // revisar como llegan los datos de diets
-                                <option key={diet.id} value={diet.name}>{diet.name}</option>
+                                <option key={diet.name} value={diet.name}>{diet.name}</option>
                                 )
                                 })}
                         </select>

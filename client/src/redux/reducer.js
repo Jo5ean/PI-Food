@@ -20,7 +20,7 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_SCORE:
-      console.log(action.payload)
+      
       return{
         ...state,
         recipes: action.payload,
@@ -83,34 +83,24 @@ function rootReducer(state = initialState, action) {
         recipes: sortedName,
       };
     case SORT_BY_SCORE:
+      console.log(state.allRecipes)
       const sortedScore =
-        action.payload === "asc"?
-        state.recipes.sort(function (a, b) {
-        if(a.spoonacularScore > b.spoonacularScore){
-           return 1;
-        }
-        if(a.spoonacularScore < b.spoonacularScore){
-          return -1;
-        }
-        return 0;
-      }) : state.recipes.sort(function(a, b){
-        if(a.spoonacularScore > b.spoonacularScore){
-           return -1;
-           }
-           if(a.spoonacularScore < b.spoonacularScore){
-             return 1;
-             }
-             return 0;
-             });
-       
-          // ? state.recipes.sort((a, b) => a.spoonacularScore - b.spoonacularScore)
-          // : action.payload === "desc"
-          // ? state.recipes.sort((a, b) => b.spoonacularScore - a.spoonacularScore)
-          // : state.recipes;
+      action.payload === "asc"
+      ? state.recipes.sort(function(a,b){
+        if(a.aggregateLikes < b.aggregateLikes) {return 1}
+        if(a.aggregateLikes > b.aggregateLikes) {return -1}
+        return 0
+      }) : action.payload === "desc"
+      ? state.recipes.sort(function(a,b){
+        if(a.aggregateLikes > b.aggregateLikes) return 1
+        if(a.aggregateLikes < b.aggregateLikes) return -1
+        return 0
+      }) : state.recipes;
       return {
         ...state,
-        recipes: sortedScore,
-      };
+        recipes: sortedScore
+      }
+   
     case GET_DETAILS:
       return {
         ...state,

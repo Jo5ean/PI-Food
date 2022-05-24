@@ -2,15 +2,6 @@ import React from 'react';
 import '../styles/Card.css';
 
 export default function Card(props) {
-    // console.log(props);
-    
-    // if(props.dietDb){
-    // let dietas = props.dietDb.map(e=> e.name);
-    // console.log(dietas);
-    // }
-
-    
-
     return (
         <div className="card">
             <div>
@@ -25,8 +16,8 @@ export default function Card(props) {
                     {/* revisar codigo de la siguiente linea */}
                     {props.dietDb ?
                         props.dietDb.map(e => {
-                            return <li key={e.id}>{e.name}</li>
-                        } ) : props.diets?.map(e=>{ return <li key={e.id}>{e}</li>})
+                            return <li key={e}>{e.name}</li>
+                        } ) : props.diets?.map(e=>{ return <li key={e}>{e}</li>})
                     }
                     {/* {diets.map(e=>{ return <li key={e.id}>{e}</li>})} */}
                 </ul>

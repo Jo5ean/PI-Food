@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    spoonacularScore: {
+    aggregateLikes: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
