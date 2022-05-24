@@ -8,8 +8,28 @@ export const FILTER_BY_ORIGIN ='FILTER_BY_ORIGIN'
 export const SORT_BY_NAME ='SORT_BY_NAME'
 export const SORT_BY_SCORE ='SORT_BY_SCORE'
 export const POST_RECIPE ='POST_RECIPE'
+export const GET_SCORE = 'GET_SCORE'
 
 //realizamos la coneccion del back con el front con axios
+export function getScore(name){
+    return async function(dispatch){
+        try{
+            if(name){
+          
+                let json  = await axios.get('/recipe/get/', {});
+                // console.log(json.data)
+                let scorefilt = json.data.filter((e)=>e.spoonacularScore == name)
+                return dispatch({
+                    type: GET_SCORE,
+                    payload: scorefilt,
+                    
+                })
+            }
+        } catch(err){
+            console.log(err)
+        }
+    }
+}
 
 export function getRecipes(name){
     return async function (dispatch){

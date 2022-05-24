@@ -30,16 +30,17 @@ export default function Detail() {
     }, [dispatch, id]); //cosultar por el doble argumento 
 
     const detail = useSelector(state => state.details);
-    // console.log(detail);
+    console.log(detail);
     // console.log(detail[0].summary.innerHTML);
     //    console.log(detail[0].summary);
     return (
+        <div className="fondo">
             <div className="detail-header">
             <Link to='/home'><button className="detail_button" id='aCasa'>Volver</button></Link>
             <Link to='/form'><button className="detail_button">Crea una Receta</button></Link>
             {
                 detail.length > 0 ?
-                    <div>
+                    <div className="separar">
                         <h1 className="name">{detail[0].name}</h1>
 
                         <div className="mar">
@@ -76,20 +77,20 @@ export default function Detail() {
                             <li>
                                 <div>
                                     <h3 className='caracts'>Puntuación:</h3>
-                                    <p className="detail__text">{detail[0].spoonacularScore}</p>
+                                    <p className="detail__text"><strong>{detail[0].spoonacularScore}</strong></p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <h3 className='caracts'>Nivel de "comida saludable":</h3>
-                                    <p className="detail__text">{detail[0].healthScore}</p>
+                                    <p className="detail__text"><strong>{detail[0].healthScore}</strong></p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <h3 className='caracts'>Paso a paso:</h3>
                                     {detail[0].createInDb ? <p className="detail__text">{detail[0].steps}</p> :
-                                        <p className="last">{detail[0].analyzedInstructions}</p>
+                                        <p className="last"><strong>{detail[0].analyzedInstructions}</strong></p>
                                     }
                                 </div>
                             </li>
@@ -99,6 +100,7 @@ export default function Detail() {
                         <h1><strong>Cooking..</strong></h1>
                     </div>
             }
+        </div>
         </div>
     );
 }

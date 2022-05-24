@@ -7,6 +7,7 @@ import {
   SORT_BY_NAME,
   SORT_BY_SCORE,
   POST_RECIPE,
+  GET_SCORE
 } from "./actions.js";
 
 const initialState = {
@@ -18,6 +19,12 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_SCORE:
+      console.log(action.payload)
+      return{
+        ...state,
+        recipes: action.payload,
+      }
     case GET_RECIPES:
       return {
         ...state,

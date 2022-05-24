@@ -129,3 +129,11 @@
     opacity: 1;
     right: 0;
   }
+
+  .title1{
+    font-size: big;
+    color: #6b705c;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }

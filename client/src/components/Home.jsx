@@ -121,7 +121,7 @@ export default function Home () {
                 </ul>
             </div>
 
-            <h1> Buscador de Recetas / Mis recetas </h1>
+            <h1 className='title1'> Hope you enjoy it! </h1>
             <Paginado recipesPerPage={recipesPerPage} allRecipes={allRecipes.length} paginado={paginado}/>
 
             <div className='container'>

@@ -1,5 +1,5 @@
 .detail{
-    background-color: #f7dfb4;
+    background-color: #edd09b;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -59,8 +59,8 @@
 
 
 .asd{
-    display: inline-block;
-    padding: 10px;
+    display: inline;
+    padding: 50px;
     margin: 30px;
     font-size: medium;
 }
@@ -74,7 +74,8 @@
     font-size: medium;
 }
 .detail__list li {
-    display: inline;
+    display: block;
+    padding: 3px;
 }
 
 p{
@@ -100,4 +101,15 @@ p{
     color: #13b597;
     font-size: 1.8rem;
     margin-top: 10%;
+}
+.fondo{
+    background-color: #edd09b;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.fondo h1{
+    color: #13b597;
+    font-size: 3rem;
+    margin-top: 2%;
 }

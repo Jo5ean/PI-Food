@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipes } from "../redux/actions";
+import { getRecipes, getScore } from "../redux/actions";
 import '../styles/SearchBar.css';
 
 export default function SearchBar() {
 
     const dispatch = useDispatch();
-    const [name, setName] = useState('');
+    const [name, setName] = useState("");
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -16,7 +16,7 @@ export default function SearchBar() {
     function handlesubmit(e) {
         e.preventDefault();
         dispatch(getRecipes(name)); //probablemente tenga que declarar una variable y meter el getrecipes en ella
-        setName('');
+        setName("");
     }
 
     return (
